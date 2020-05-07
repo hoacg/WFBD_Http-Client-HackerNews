@@ -5,16 +5,21 @@ import { AppComponent } from './app.component';
 import { ArticleComponent } from './article/article.component';
 import { DemoComponentComponent } from './demo-component/demo-component.component';
 import {HttpClientModule} from "@angular/common/http";
+import { CreateArticleComponent } from './create-article/create-article.component';
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
     AppComponent,
     ArticleComponent,
-    DemoComponentComponent
+    DemoComponentComponent,
+    CreateArticleComponent
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import {HttpClient, HttpErrorResponse} from "@angular/common/http";
-import * as news from './data/news.json';
 
 @Component({
   selector: 'app-root',
@@ -9,14 +8,13 @@ import * as news from './data/news.json';
 })
 export class AppComponent {
 
-  articles: Article[] = news.default;
+  articles: Article[];
   message: string;
   isLoading = false;
   loadingMessage = "Đang chờ...";
 
   constructor(private httpClient: HttpClient) {
     this.getNewsFromAPI();
-    console.log(news);
   }
 
   getNewsFromAPI() {
@@ -25,7 +23,7 @@ export class AppComponent {
       this.loadingMessage += '.';
     }, 500);
     this.httpClient
-      .get<Article[]>('https://api.hnpwa.com/v0/news/1.json')
+      .get<Article[]>('http://localhost:8000/news')
       .subscribe( (newsItems) => {
       this.articles = newsItems;
         this.isLoading = false;
@@ -37,20 +35,8 @@ export class AppComponent {
       });
   }
 
-  createNews() {
-    const article: Article = {
-      title: 'Abc Xyz',
-      url: 'http://codegym.vn/blogs/huong-dan-angular'
-    }
-    this.httpClient.post('https://api.hnpwa.com/v0/news', article).subscribe( (result) => {
-      console.log('Thêm bài viết thành công');
-    }, (error) => {
-      console.log('Gặp lỗi khi thêm bài viết');
-      console.error(error);
-    });
-  }
-
   showArticleContent(event) {
     alert(event);
   }
+
 }

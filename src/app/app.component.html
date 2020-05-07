@@ -1,20 +1,14 @@
-<!--<app-article [title]="'Đây là tiêu đề 1'"></app-article>-->
-<!--<app-article [title]="'Đây là tiêu đề 2'"></app-article>-->
-<!--<app-article [title]="'Đây là tiêu đề 3'"></app-article>-->
-<!--<app-article [title]="'Đây là tiêu đề 4'"></app-article>-->
-<!--<app-article [title]="'Đây là tiêu đề 5'"></app-article>-->
-<!--<app-article [title]="'Đây là tiêu đề 6'"></app-article>-->
+<div class="container">
+  <app-create-article (onNewArticle)="getNewsFromAPI()"></app-create-article>
 
-<h3 style="color: blue" *ngIf="isLoading">{{ loadingMessage }}</h3>
-<h3 style="color: red" *ngIf="message">{{ message }}</h3>
+  <h3 style="color: blue" *ngIf="isLoading">{{ loadingMessage }}</h3>
+  <h3 style="color: red" *ngIf="message">{{ message }}</h3>
 
-<app-article *ngFor="let item of articles"
-             [article]="item"
-             (onClickShowButton)="showArticleContent($event)"
->
+  <app-article *ngFor="let item of articles"
+               [article]="item"
+               (onClickShowButton)="showArticleContent($event)"
+  >
 
-</app-article>
+  </app-article>
 
-<!--<app-demo-component [article]="demoArticleTitle"></app-demo-component>-->
-
-<!--{{ demoArticleTitle }}-->
+</div>
