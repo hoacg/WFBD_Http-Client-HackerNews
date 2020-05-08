@@ -1,6 +1,7 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {HttpClient} from "@angular/common/http";
+import {NewsService} from "../news.service";
 
 @Component({
   selector: 'app-create-article',
@@ -13,7 +14,7 @@ export class CreateArticleComponent implements OnInit {
 
   articleForm: FormGroup;
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient, private newsService: NewsService) { }
 
   ngOnInit() {
     this.articleForm = new FormGroup({
