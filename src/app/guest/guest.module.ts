@@ -5,13 +5,25 @@ import {ArticleComponent} from "./article/article.component";
 import {ListArticleComponent} from "./list-article/list-article.component";
 import {FormsModule} from "@angular/forms";
 import { HeaderComponent } from './header/header.component';
+import { ListVideoComponent } from './list-video/list-video.component';
+import { LayoutComponent } from './layout/layout.component';
 
 
 const routes: Routes = [
   {
     path: '',
-    component: ListArticleComponent
-  },
+    component: LayoutComponent,
+    children: [
+      {
+        path: '',
+        component: ListArticleComponent
+      },
+      {
+        path: 'video',
+        component: ListVideoComponent
+      }
+    ]
+  }
 ];
 
 
@@ -19,7 +31,9 @@ const routes: Routes = [
   declarations: [
     ArticleComponent,
     ListArticleComponent,
-    HeaderComponent
+    HeaderComponent,
+    ListVideoComponent,
+    LayoutComponent
   ],
   imports: [
     CommonModule,
