@@ -1,7 +1,7 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {HttpClient} from "@angular/common/http";
-import {NewsService} from "../news.service";
+import {NewsService} from "../../news.service";
 import {Router} from "@angular/router";
 
 @Component({
