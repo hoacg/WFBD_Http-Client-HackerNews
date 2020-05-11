@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import {RouterModule, Routes} from "@angular/router";
 import {CreateArticleComponent} from "./create-article/create-article.component";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { HeaderComponent } from './header/header.component';
 
 const routes: Routes = [
   {
@@ -13,7 +14,7 @@ const routes: Routes = [
 
 
 @NgModule({
-  declarations: [CreateArticleComponent],
+  declarations: [CreateArticleComponent, HeaderComponent],
   imports: [
     CommonModule,
     FormsModule,

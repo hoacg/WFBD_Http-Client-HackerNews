@@ -4,6 +4,7 @@ import {RouterModule, Routes} from "@angular/router";
 import {ArticleComponent} from "./article/article.component";
 import {ListArticleComponent} from "./list-article/list-article.component";
 import {FormsModule} from "@angular/forms";
+import { HeaderComponent } from './header/header.component';
 
 
 const routes: Routes = [
@@ -17,7 +18,8 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     ArticleComponent,
-    ListArticleComponent
+    ListArticleComponent,
+    HeaderComponent
   ],
   imports: [
     CommonModule,
