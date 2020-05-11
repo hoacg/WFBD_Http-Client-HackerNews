@@ -2,6 +2,7 @@ import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {HttpClient} from "@angular/common/http";
 import {NewsService} from "../news.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-create-article',
@@ -14,7 +15,11 @@ export class CreateArticleComponent implements OnInit {
 
   articleForm: FormGroup;
 
-  constructor(private httpClient: HttpClient, private newsService: NewsService) { }
+  constructor(
+    private httpClient: HttpClient,
+    private newsService: NewsService,
+    private router: Router
+  ) { }
 
   ngOnInit() {
     this.articleForm = new FormGroup({
@@ -33,6 +38,8 @@ export class CreateArticleComponent implements OnInit {
       console.log('Thêm bài viết thành công');
 
       this.onNewArticle.emit();
+      // direct --> /
+      this.router.navigate(['/'] );
     }, (error) => {
       console.log('Gặp lỗi khi thêm bài viết');
       console.error(error);

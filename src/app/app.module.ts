@@ -7,19 +7,35 @@ import { DemoComponentComponent } from './demo-component/demo-component.componen
 import {HttpClientModule} from "@angular/common/http";
 import { CreateArticleComponent } from './create-article/create-article.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {RouterModule, Routes} from "@angular/router";
+import { ListArticleComponent } from './list-article/list-article.component';
+
+const routes: Routes = [
+  {
+    path: '',
+    component: ListArticleComponent
+  },
+
+  {
+    path: 'create',
+    component: CreateArticleComponent
+  }
+];
 
 @NgModule({
   declarations: [
     AppComponent,
     ArticleComponent,
     DemoComponentComponent,
-    CreateArticleComponent
+    CreateArticleComponent,
+    ListArticleComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [],
   bootstrap: [AppComponent]
